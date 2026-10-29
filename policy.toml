@@ -1,0 +1,8 @@
+# Terrarium policy: which capabilities a module may be granted, and its budgets.
+# Capabilities: stdout, time, random.  (`net` is declared but never implemented.)
+name = "demo"
+allow = ["stdout", "time", "random"]
+
+[budget]
+fuel = 1_000_000          # metered wasm operators per call
+max_output_bytes = 65536  # bytes the guest may emit via `log`
