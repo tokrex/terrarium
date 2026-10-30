@@ -4,9 +4,7 @@
 
 Terrarium is a lightweight experiment on [Wasmer](https://github.com/wasmerio/wasmer) that operates without containers or VMs. Instead of fencing code in, Terrarium builds a tiny world per call. The module's import list is read as a **capability manifest** and checked against a policy *before* any guest code runs. Every host interaction is **journaled** so a run can be replayed and verified. Denials come back as **structured, repairable diagnostics**, so the sandbox becomes part of an agent's compile-and-fix loop.
 
-To understand the full mission of Terrarium, listen to the podcast or read the [vision document](VISION.md).
-
-<video controls height="32" src="Why_AI_Agents_Need_WebAssembly_Sandboxes.mp4"></video>
+To understand the full mission of Terrarium, [listen to the podcast](Why_AI_Agents_Need_WebAssembly_Sandboxes.mp4) or read the [vision document](VISION.md).
 
 ### Core Hypotheses
 
