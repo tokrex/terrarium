@@ -1,12 +1,15 @@
 # Terrarium
 
-An experiment in agent sandboxing on [Wasmer](https://github.com/wasmerio/wasmer).
+**Agents increasingly write the code they run.** Most sandboxes ask: *"How do we keep that code in a cage?"* Terrarium asks a different question: *"What is this code allowed to do, who decided that, and can we reconstruct what it actually did?"*
 
-Instead of fencing code in, Terrarium builds a tiny world per call. The module's
-import list is read as a **capability manifest** and checked against a policy
-*before* any guest code runs. Every host interaction is **journaled** so a run
-can be replayed and verified. Denials come back as **structured, repairable
-diagnostics**, so the sandbox becomes part of an agent's compile-and-fix loop.
+Terrarium is a lightweight experiment on [Wasmer](https://github.com/wasmerio/wasmer) that operates without containers or VMs. Instead of fencing code in, Terrarium builds a tiny world per call. The module's import list is read as a **capability manifest** and checked against a policy *before* any guest code runs. Every host interaction is **journaled** so a run can be replayed and verified. Denials come back as **structured, repairable diagnostics**, so the sandbox becomes part of an agent's compile-and-fix loop.
+
+### Core Hypotheses
+
+* **Agent-first languages:** Languages optimized for the agent-and-compiler loop dramatically reduce the cost of generating and repairing code.
+* **Agent-first orchestration:** When agents publish and reuse small modules, the unit of composition becomes capability-declared and fully replayable.
+
+Both points are open hypotheses rather than proven facts. For the full rationale, economic angle, and falsification criteria for each hypothesis, [check out the VISION](VISION.md). 
 
 > Research prototype, not audited, not a security product. Read
 > [LIMITS.md](LIMITS.md) before drawing conclusions.
